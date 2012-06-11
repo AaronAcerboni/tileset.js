@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Simple example with tileset.js</title>
+  <script src='../tileset.js'></script>
+</head>
+<body>
+  <style>
+    button {
+      display:block;
+    }
+    img {
+      border: 1px solid #333;
+    }
+    canvas {
+      background: #00FFCC;
+    }
+    figure {
+      margin: 1em 0 1em 0;
+    }
+    pre {
+      margin: 0;
+      padding: 1em;
+      border-radius: 2px;
+      border: solid 1px #ccc;
+      float: left;
+    }
+  </style>
+  <h1>tileset.js</h1>
+  <canvas>Canvas not supported?</canvas>
+  <script>
+    function run() {
+      var code = document.getElementsByTagName('pre')[0].textContent;
+      eval(code);
+    }
+  </script>
+  <button onclick='run()'>Run code below</button>
+  <figure>
+    <img src='sheets/test.jpg' alt='\'sheets/test.jpg\''>
+    <figcaption>'sheets/test.jpg'</figcaption>
+  </figure>
+  <pre>
+var context  = document.getElementsByTagName('canvas')[0].getContext('2d'),
+    tileSize = 16,
+    tilemap  = [
+      [1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1, 4, 2, 1],
+      [1, 0, 0, 0, 1, 2, 4, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1]
+    ];
+
+tileset.setup({
+  context: context,
+  sheets: {
+    test: 'sheets/test.jpg',
+  },
+  tileSize: tileSize,
+  columns: 4
+});
+
+// Draw with tileset.js
+
+for(var i = 0; i < tilemap.length; i++){
+  for(var n = 0; n < tilemap[i].length; n++){
+    tileset.tile('test', n * tileSize, i * tileSize, tilemap[i][n]);
+  }
+}
+
+
+  </pre>
+</body>
+</html>
