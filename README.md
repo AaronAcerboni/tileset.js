@@ -71,10 +71,10 @@ An example config option:
 
 ### Methods
 
-`tileset.setup(config)` &mdash; see Configuration
+`tileset.setup(config)` &mdash; See Configuration
 
-`tileset.tile(sheet, canvasX, canvasY, tileNumber)`
+`tileset.tile(sheet, canvasX, canvasY, tileNumber)` &mdash; See example
 
-`tileset.tileMap` (not implemented)
+`tileset.tileMap` &mdash; Not implemented
 
-`tileset.sliceTile` 
+`tileset.sliceTile` &mdash; See example
