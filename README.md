@@ -30,9 +30,16 @@ together to create graphical scenes.
       }
     }
 
-## Usage
+Generates the following:
 
-Tileset is 
+![Mapped tiles](https://github.com/AaronAcerboni/tileset.js/blob/master/example/outcome.png?raw=true)
+
+
+From the following tileset:
+
+![Tileset](https://github.com/AaronAcerboni/tileset.js/blob/master/example/sheets/test.jpg?raw=true)
+
+## Usage
 
 ### Configuration
 
