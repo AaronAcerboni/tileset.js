@@ -100,11 +100,11 @@ An example config option:
 
 ### Methods
 
-`tileset.set(config)`
+#### .set(config)
 
 Sets the default configuration options for tileset to use (see Configuration &uarr;).
 
-`tileset.tile(tileset, canvasX, canvasY, tileNumber, config)`
+#### .tile(tileset, canvasX, canvasY, tileNumber, config)
 
 This method draws a tile to the provided canvas context.
 
@@ -116,11 +116,11 @@ This method draws a tile to the provided canvas context.
 properties were previously set, then setting only specific properties in the 
 config object is possible.
 
-`tileset.tileMap(tileset, twoDimensionalArray, config)`
+#### .tileMap(tileset, twoDimensionalArray, config)
 
 Not implemented yet.
 
-`tileset.getTile(tileset, tileNumber, config)` &mdash;
+#### .getTile(tileset, tileNumber, config)
 
 This is a proxy to the small algorithm tileset.js has which handles tile 
 traversal based on integers.
