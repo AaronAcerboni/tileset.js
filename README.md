@@ -13,9 +13,7 @@ be any size providing they are all the same width.
 
 You only need to specify the tile's size and the amount of columns it has.
 
-    var context  = document.getElementsByTagName('canvas')[0].getContext('2d'),
-        tileSize = 16,
-        tilemap  = [
+    var tilemap  = [
           [1, 1, 1, 1, 1, 1, 1, 1],
           [1, 0, 0, 0, 1, 4, 2, 1],
           [1, 0, 0, 0, 1, 2, 4, 1],
@@ -23,11 +21,11 @@ You only need to specify the tile's size and the amount of columns it has.
         ];
 
     tileset.set({
-      context: context,
+      context: document.getElementsByTagName('canvas')[0].getContext('2d'),
       sheets: {
         test: 'sheets/test.jpg',
       },
-      tileSize: tileSize,
+      tileSize: 16,
       columns: 4
     });
 
