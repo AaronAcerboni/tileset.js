@@ -1,6 +1,5 @@
 # tileset.js
 
-*written by Aaron Acerboni*
 *600~ bytes minified*
 
 Tilesets are bitmaps with a number of different tiles which can be pieced 
