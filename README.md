@@ -135,3 +135,5 @@ config object is possible.
 ### Further development ideas
 
 - Investigate layers and pseudo transparency
+- Allow for explicit specification of column and tile size for each sheet. This 
+is over config overloading in methods.
