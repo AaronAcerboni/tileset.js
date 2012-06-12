@@ -1,6 +1,7 @@
 # tileset.js
 
-< 500 bytes minified
+*written by Aaron Acerboni*
+*600~ bytes minified*
 
 Tilesets are bitmaps with a number of different tiles which can be pieced 
 together to create graphical scenes.
@@ -122,8 +123,8 @@ Not implemented yet.
 
 #### .getTile(tileset, tileNumber, config)
 
-This is a proxy to the small algorithm tileset.js has which handles tile 
-traversal based on integers.
+This is a proxy to the small algorithm tileset.js uses for tile traversal based 
+on integers.
 
 It returns `{x: #, y: #}` which is the top left position of a tile on the 
 requested tileset. This is useful as this can be used with the tile size to slice 
