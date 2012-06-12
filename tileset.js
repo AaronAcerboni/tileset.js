@@ -9,22 +9,22 @@ var tileset = (function () {
       context,
       tileSize = 32,
       columns,
-      sheets;
+      tilesets;
 
   // High level usage, needed to setup the tileset module
 
-  exports.setup = function (config) {
-    context    = config.context;
+  exports.set = function (config) {
+    context    = config.context  || tilesets;
     tileSize   = config.tileSize || tileSize;
-    columns    = config.columns;
-    sheets     = config.sheets;
+    columns    = config.columns  || columns;
+    tilesets   = config.tilesets || tilesets;
   };
 
   // High level usage, pass a canvas x y coordinate and have 
   // it drawn for you.
 
-  exports.tile = function (sheet, canvasX, canvasY, tileNo) {
-    getTileset(sheet, function (img) {
+  exports.tile = function (tileset, canvasX, canvasY, tileNo) {
+    getTileset(tileset, function (img) {
       var slicePos = getTilePosition(tileNo);
       context.drawImage(
         img,
@@ -43,25 +43,25 @@ var tileset = (function () {
   // High level usage, pass a 2d array and have it drawn
   // for you
 
-  exports.tileMap = function (sheet, twoDimensionalArray) {
+  exports.tileMap = function (tileset, twoDimensionalArray) {
 
   };
 
   // Lower level usage, pass just a tileNo and recieve back 
   // its x y position in a tileset
 
-  exports.sliceTile = function (sheet, tileNo) {
+  exports.getTile = function (tileset, tileNo) {
     return getTilePosition(tileNo);
   }
 
   // Private, fetches a tileset and passes its img to a callback
 
-  function getTileset (sheet, cb) {
+  function getTileset (tileset, cb) {
     var img = new Image();
     img.onload = function () {
       cb(img);
     };
-    img.src = sheets[sheet];
+    img.src = tilesets[tileset];
     return img;
   }
 
@@ -73,8 +73,6 @@ var tileset = (function () {
         currentTileNo = 0,
         yTarget       = 0,
         xTarget       = 0;
-
-    console.log('start');
 
     while (true) {
       if (xTarget === maxPixelWidth) {
