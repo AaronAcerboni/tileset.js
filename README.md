@@ -113,8 +113,8 @@ This method draws a tile to the provided canvas context.
 - `canvasY`: The canvas y position to apply a tile from the top left.
 - `tileNumber`: An integer representing the desired tile to use (see Usage).
 - `config`: a config to use or use over the previously set config. If config 
-properties were previously set, then setting specific properties in the config 
-object is possible.
+properties were previously set, then setting only specific properties in the 
+config object is possible.
 
 `tileset.tileMap(tileset, twoDimensionalArray, config)`
 
@@ -129,11 +129,10 @@ It returns `{x: #, y: #}` which is the top left position of a tile on the
 requested tileset. This is useful as this can be used with the tile size to slice 
 from the tileset.
 
-- `tileset`: One of the keys specified in config.tilesets.
 - `tileNumber`: An integer representing the desired tile to use (see Usage).
 - `config`: a config to use or use over the previously set config. If config 
-properties were previously set, then setting specific properties in the config 
-object is possible.
+properties were previously set, then setting only specific properties in the 
+config object is possible.
 
 ### Further development ideas
 
