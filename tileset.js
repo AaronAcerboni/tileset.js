@@ -5,27 +5,32 @@
 
 var tileset = (function () {
   var exports = this,
-
-      context,
-      tileSize = 32,
-      columns,
-      tilesets;
+      _context,
+      _tileSize = 32,
+      _columns,
+      _tilesets;
 
   // High level usage, needed to setup the tileset module
 
   exports.set = function (config) {
-    context    = config.context  || tilesets;
-    tileSize   = config.tileSize || tileSize;
-    columns    = config.columns  || columns;
-    tilesets   = config.tilesets || tilesets;
+    _context    = config.context  || _context;
+    _tileSize   = config.tileSize || _tileSize;
+    _columns    = config.columns  || _columns;
+    _tilesets   = config.tilesets || _tilesets;
   };
 
   // High level usage, pass a canvas x y coordinate and have 
   // it drawn for you.
 
-  exports.tile = function (tileset, canvasX, canvasY, tileNo) {
+  exports.tile = function (tileset, canvasX, canvasY, tileNo, config) {
+    var config   = config || {},
+        context  = config.context || _context,
+        tileSize = config.tileSize|| _tileSize,
+        columns  = config.columns || _columns,
+        tilesets = config.tilesets|| _tilesets;
+
     getTileset(tileset, function (img) {
-      var slicePos = getTilePosition(tileNo);
+      var slicePos = getTilePosition(tileNo, config);
       context.drawImage(
         img,
         slicePos.x,
@@ -41,39 +46,43 @@ var tileset = (function () {
   };
 
   // High level usage, pass a 2d array and have it drawn
-  // for you
 
-  exports.tileMap = function (tileset, twoDimensionalArray) {
-
+  exports.tileMap = function (tileset, twoDimArr, config) {
+    // Not implemented.
   };
 
   // Lower level usage, pass just a tileNo and recieve back 
   // its x y position in a tileset
 
-  exports.getTile = function (tileset, tileNo) {
-    return getTilePosition(tileNo);
+  exports.getTile = function (tileNo, config) {
+    return getTilePosition(tileNo, config);
   }
 
-  // Private, fetches a tileset and passes its img to a callback
+  // Private, fetches a tileset and passes its DOM <img> to a callback
 
   function getTileset (tileset, cb) {
     var img = new Image();
     img.onload = function () {
       cb(img);
     };
-    img.src = tilesets[tileset];
+    img.src = _tilesets[tileset];
     return img;
   }
 
-  // Private, fetches the tile as a slice from the tileset
+  // Private, fetches the tile top left pos from the tileset
 
-  function getTilePosition (tileNo) {
-    var maxPixelWidth = tileSize * columns,
+  function getTilePosition (tileNo, config) {
+    var config   = config || {},
+        tileSize = config.tileSize|| _tileSize,
+        columns  = config.columns || _columns,
+
+        maxPixelWidth = tileSize * columns,
         slicePos      = {},
         currentTileNo = 0,
         yTarget       = 0,
         xTarget       = 0;
 
+    tileNo--;
     while (true) {
       if (xTarget === maxPixelWidth) {
         xTarget = 0;
