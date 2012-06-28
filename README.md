@@ -139,7 +139,7 @@ config object is possible.
 is over config overloading in methods.
 
 - - -
-[![kopimi][2]][]
+[![kopimi][1]][2]
 
-  [1]: https://github.com/AaronAcerboni/aaronacerboni.github.com/raw/master/kopimi_mini_black.gif
+  [1]: https://github.com/AaronAcerboni/aaronacerboni.github.com/blob/master/kopimi_mini_black.gif?raw=true
   [2]: http://kopimi.com/kopimi/
