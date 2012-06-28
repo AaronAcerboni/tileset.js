@@ -137,3 +137,9 @@ config object is possible.
 - Investigate layers and pseudo transparency
 - Allow for explicit specification of column and tile size for each sheet. This 
 is over config overloading in methods.
+
+- - -
+[![kopimi][2]][]
+
+  [1]: https://github.com/AaronAcerboni/aaronacerboni.github.com/raw/master/kopimi_mini_black.gif
+  [2]: http://kopimi.com/kopimi/
