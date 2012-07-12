@@ -8,10 +8,11 @@ together to create graphical scenes.
 This library aims to provide an easy layer for working with the html canvas 
 and multiple tilsets. 
 
-tileset.js works fine with uniformed square tiles and the tilesets can 
-be any size providing they are all the same width.
+tileset.js works with tilesets with uniformed square tiles. The tilesets can be 
+any size providing they are all the same width.
 
-You only need to specify the tile's size and the amount of columns it has.
+You only need to specify the tile's size in pixels and the amount of columns it 
+has.
 
     var tilemap  = [
           [1, 1, 1, 1, 1, 1, 1, 1],
@@ -21,7 +22,7 @@ You only need to specify the tile's size and the amount of columns it has.
         ];
 
     tileset.set({
-      context: document.getElementsByTagName('canvas')[0].getContext('2d'),
+      context: document.getElementsById('canvas').getContext('2d'),
       sheets: {
         test: 'sheets/test.jpg',
       },
@@ -46,22 +47,22 @@ From the following tileset:
 
 ## Usage
 
-tileset.js will give users a 0-based integer lookup to provided tilesets from 
+tileset.js provides users an integer lookup (0 based) to provided tiles from 
 left to right and then the next row running down the tileset. 
        
     | 0 | 1 | 2 | 4 |
     | 5 | 6 | 7 | 8 |
     | 9 |10 |11 |12 |
 
-As previously mentioned one should specify the tile size and the columns the 
+As previously mentioned one specifies the tile size and the columns the 
 tilesets have. This is how tileset.js is able to achieve the lookup.
 
 If you are working with uniformed tilesets you may specify this all in a config 
 option.
 
-However tileset.js has been designed for the possibility of sized tilesets also.
-So the config settings can be overridden in every method or reset to something 
-else.
+However tileset.js has been designed for the possibility of different sized tilesets 
+also. So the config settings can be overridden in every method call or reset to 
+something else.
 
 Tile sizes within each tileset must be uniformed however. So if its 16 pixels in 
 tileset A then the rest of the tiles in A should also be 16 pixels.
@@ -76,7 +77,7 @@ The config object must specify the following key/values:
 
 - A canvas 2d **context**. This is where the tile bitmaps will be applied to.
 - A **sheets** object. This should be a object key/value mapping between a 
-  sheet's identifier name and its location for retrieval.
+  sheet's identifier name and its src location for retrieval.
 - A **columns** integer. The amount of tile columns within each tileset. This 
   value is **not** zero based.
 
@@ -107,8 +108,8 @@ Sets the default configuration options for tileset to use (see Configuration &ua
 This method draws a tile to the provided canvas context.
 
 - `tileset`: One of the keys specified in config.tilesets.
-- `canvasX`: The canvas x position to apply a tile from the top left.
-- `canvasY`: The canvas y position to apply a tile from the top left.
+- `canvasX`: The canvas x position to apply a tile from the top left point.
+- `canvasY`: The canvas y position to apply a tile from the top left point.
 - `tileNumber`: An integer representing the desired tile to use (see Usage).
 - `config`: a config to use or use over the previously set config. If config 
 properties were previously set, then setting only specific properties in the 
@@ -124,8 +125,8 @@ This is a proxy to the small algorithm tileset.js uses for tile traversal based
 on integers.
 
 It returns `{x: #, y: #}` which is the top left position of a tile on the 
-requested tileset. This is useful as this can be used with the tile size to slice 
-from the tileset.
+requested tileset. This is useful as this can be used in conjunction with
+the tile size to slice from the tileset.
 
 - `tileNumber`: An integer representing the desired tile to use (see Usage).
 - `config`: a config to use or use over the previously set config. If config 
